@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const url='mongodb://127.0.0.1:27017/hotel';
+// const url='mongodb://127.0.0.1:27017/hotel';
+const url = 'mongodb+srv://Aman102006:12344321@cluster0.si4zhhg.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.connect(url,{
     serverSelectionTimeoutMS: 2000 
