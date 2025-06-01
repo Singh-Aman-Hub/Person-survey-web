@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 // const url='mongodb://127.0.0.1:27017/hotel';
-const url = 'mongodb+srv://Aman102006:12344321@cluster0.si4zhhg.mongodb.net/?retryWrites=true&w=majority';
+const url = process.env.mongo_db_online_url;
+//type local for local database;
 
 mongoose.connect(url,{
     serverSelectionTimeoutMS: 2000 

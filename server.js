@@ -1,4 +1,5 @@
 const express=require('express');
+require('dotenv').config();
 
 const db=require('./dbConnect.js');
 const app=express();
@@ -24,8 +25,8 @@ app.use('/person',personRoutes);
 
 
 
-
-app.listen(3000,()=>{
+const PORT= process.env.PORT || 3000;
+app.listen(PORT,()=>{
     console.log("The main server is running!");
 })
 
