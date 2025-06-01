@@ -123,10 +123,12 @@
       <br>
       <hr>
       <br>
-      <button onclick="activateShow()" id="fetchData">Retrieve the info!</button>
+      
     </form>
+    
 
     <div id="output">
+        <button onclick="activateShow()" id="fetchData">Retrieve the info!</button>
       <ol id="box"></ol>
     </div>
   </div>
@@ -153,22 +155,28 @@
       alert("Server Response: " + JSON.stringify(result) + " Response saved successfully!");
     });
 
-    function activateShow() {
-      fetch("http://localhost:3000/person/")
-        .then(res => res.json())
-        .then(res => {
-          const list = document.querySelector("#box");
-          list.innerHTML = ""; // clear old data
-          for (let el of res.Adata) {
-            const item = document.createElement("li");
-            item.textContent = `name - ${el.name} age - ${el.age} work - ${el.work} sal - ${el.salary}`;
-            list.appendChild(item);
-          }
-        })
-        .catch(res => {
-          document.querySelector("#box").textContent = "Something went wrong";
-        });
-    }
+    function activateShow(){
+            fetch("http://localhost:3000/person/")
+            .then(res=>res.json())
+            .then(res =>{
+
+                const list=document.querySelector("#box");
+                // const item=document.createElement("li");
+                // item.textContent=res.Adata[1]["name"];
+                // list.appendChild(item);
+                // alert(typeof res.Adata[0]);
+
+                for(let el of res.Adata){
+                    const item=document.createElement("li");
+                    item.textContent=`name - ${el.name} age- ${el.age}  work-${el.work}  sal-${el.salary}`;
+                    list.appendChild(item);
+                }
+            })
+            .catch(res=>{
+                document.querySelector("#box").textContent="Something went wrong";
+            })
+        }
+        
   </script>
 
 </body>
