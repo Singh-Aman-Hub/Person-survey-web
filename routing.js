@@ -9,7 +9,7 @@ router.post('/',async (req,res)=>{
         const data=req.body;
         const newPerson= new person(data);
         const savedPerson=await newPerson.save() //returns a promise
-        console.log("Data Saved successfully ");
+        console.log(`Data Saved successfully while - ${newPerson.name} was ${newPerson.status} `);
         res.status(200).json(savedPerson);
     }catch(error){
         console.log("unable to save the data "+req.body);

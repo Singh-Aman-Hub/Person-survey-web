@@ -15,7 +15,12 @@ const personSchema=mongoose.Schema({
     salary:{
         type:Number,
         required:true
+    },
+    status:{
+        type:String,
+        require:true
     }
+
 },{collection:'people'});  //explicitly defining the collection name, instead of auto naming of collection-plural;
 
 
